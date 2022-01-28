@@ -30,7 +30,7 @@ public class PlaneTicketPage extends Base{
     }
 
     public void clickFirstFlightTicketforReturn()  {
-        clickWithCordinate(firstFlightForDetailForReturn);
+        click(firstFlightForDetailForReturn);
         ContextMap.addContext(ContextKeys.FLIGHTNUMBER2,findElement(flighNumber).getText());
         click(closeBtn);
         click(firstFlightForReturn);
