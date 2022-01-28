@@ -26,6 +26,7 @@ public class driverFactory {
         chromeOptions.addArguments("start-maximized");
         chromeOptions.addArguments("enable-automation");
         chromeOptions.addArguments("--disable-popup-blocking");
+        chromeOptions.addArguments("--disable-notifications");
         setWebdriver(new ChromeDriver(chromeOptions));
         getWebDriver().navigate().to(System.getenv("URI"));
         driverFactory.getWebDriver().manage().deleteAllCookies();

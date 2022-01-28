@@ -8,7 +8,7 @@ public class loginsteps extends driverFactory {
     loginPage loginPage = new loginPage(getWebDriver());
 
     @Step("fill login credentials and click login")
-    public void loginWithCredentials() {
+    public void loginWithCredentials() throws InterruptedException {
         loginPage.setLoginCredentialsAndClick();
     }
 

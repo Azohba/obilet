@@ -41,7 +41,7 @@ public class Base {
 
 
     public void click(By by) {
-        wait.until(ExpectedConditions.elementToBeClickable(by));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
         findElement(by).click();
     }
 

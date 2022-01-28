@@ -22,7 +22,7 @@ public class planeHomePageSteps extends driverFactory {
     }
 
     @Step("select where to <>")
-    public void selectWhereTo(String state) {
+    public void selectWhereTo(String state) throws InterruptedException {
         planeHomePage.setSelectWhereTo(state);
     }
 

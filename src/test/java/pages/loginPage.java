@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import utils.ContextKeys.userInfo;
+import utils.ContextKeys.ContextKeys;
+import utils.ContextKeys.contextMap;
 
 public class loginPage extends Base {
 
@@ -29,10 +30,11 @@ public class loginPage extends Base {
         }
     }
 
-    public void setLoginCredentialsAndClick() {
-        userInfo userInfo = new userInfo();
-        sendKeys(username, userInfo.getEMAIL());
-        sendKeys(password, userInfo.getPASS());
+    public void setLoginCredentialsAndClick() throws InterruptedException {
+        Thread.sleep(5000);
+        sendKeys(username,contextMap.getContextValue(ContextKeys.EMAIL));
+        Thread.sleep(5000);
+        sendKeys(password,contextMap.getContextValue(ContextKeys.PASS));
         click(loginPageLoginBtn);
     }
         public void clickRegister() {

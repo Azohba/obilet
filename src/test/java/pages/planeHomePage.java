@@ -24,10 +24,7 @@ public class planeHomePage extends Base{
     public void setSelectWhereTo(String state) {
         By selectState = By.xpath("//*[text()='"+state+"']");
         click(selectWhereTo);
-        waitUntilElementVisible(selectState);
         click(selectState);
-
-
     }
 
     public void setDepartureDate(String date){

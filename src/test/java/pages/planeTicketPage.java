@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.ContextKeys.flightInfo;
 
 public class planeTicketPage extends Base{
     public planeTicketPage(WebDriver driver) {
@@ -29,8 +28,8 @@ public class planeTicketPage extends Base{
 
        public void getFlightNumber(){
         click(firstFlightDetailBtn);
-           flightInfo flightInfo = new flightInfo();
-           flightInfo.setFlightNo(findElement(flighNumber).getText());
+
+          // fligh(findElement(flighNumber).getText());
            click(closeBtn);
        }
     }
