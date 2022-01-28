@@ -1,11 +1,11 @@
 package steps;
 
 import com.thoughtworks.gauge.Step;
-import pages.busHomePage;
-import utils.driverFactory;
+import pages.BusHomePage;
+import utils.DriverFactory;
 
-public class busHomePageSteps extends driverFactory {
-    busHomePage busHomePage = new busHomePage(getWebDriver());
+public class BusHomePageSteps extends DriverFactory {
+    BusHomePage busHomePage = new BusHomePage(getWebDriver());
 
     @Step("click login button")
     public void clickLogin() {

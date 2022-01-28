@@ -6,12 +6,12 @@ import org.openqa.selenium.WebDriver;
 
 
 
-public class busHomePage extends Base {
+public class BusHomePage extends Base {
     private static final By loginBtn = By.cssSelector("[class=login]");
     private static final By planeTabBtn= By.xpath("(//a[@href='/ucak-bileti'])[1]");
 
 
-    public busHomePage(WebDriver driver) {
+    public BusHomePage(WebDriver driver) {
         super(driver);
     }
 

@@ -3,7 +3,7 @@ Register Feature
 
 Register
 -------------------
-*check homepage title
+*go to homepage
 *click login button
 *click register button
 *fill register credentials "onur"

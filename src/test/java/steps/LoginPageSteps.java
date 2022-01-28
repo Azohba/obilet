@@ -1,11 +1,11 @@
 package steps;
 
 import com.thoughtworks.gauge.Step;
-import pages.loginPage;
-import utils.driverFactory;
+import pages.LoginPage;
+import utils.DriverFactory;
 
-public class loginsteps extends driverFactory {
-    loginPage loginPage = new loginPage(getWebDriver());
+public class LoginPageSteps extends DriverFactory {
+    LoginPage loginPage = new LoginPage(getWebDriver());
 
     @Step("fill login credentials and click login")
     public void loginWithCredentials() throws InterruptedException {

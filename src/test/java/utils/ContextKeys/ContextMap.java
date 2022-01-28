@@ -2,11 +2,8 @@ package utils.ContextKeys;
 
 import java.util.HashMap;
 
-public class contextMap {
+public class ContextMap {
     private static HashMap<ContextKeys, String> contextMap;
-    private String flightNo;
-    private String EMAIL;
-    private String PASS;
 
     public static void initializeContext(){
         contextMap = new HashMap<ContextKeys, String>();
@@ -27,30 +24,6 @@ public class contextMap {
         if(value == null)
             return "CONTEXT WITH KEY " + key + " NOT FOUND";
         return value;
-    }
-
-    public String getFlightNo() {
-        return flightNo;
-    }
-
-    public void setFlightNo(String flightNo) {
-        this.flightNo = flightNo;
-    }
-
-    public String getEMAIL() {
-        return EMAIL;
-    }
-
-    public void setEMAIL(String EMAIL) {
-        this.EMAIL = EMAIL;
-    }
-
-    public String getPASS() {
-        return PASS;
-    }
-
-    public void setPASS(String PASS) {
-        this.PASS = PASS;
     }
 
 }

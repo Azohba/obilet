@@ -3,8 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class planeHomePage extends Base{
-    public planeHomePage(WebDriver driver) {
+public class PlaneHomePage extends Base{
+    public PlaneHomePage(WebDriver driver) {
         super(driver);
     }
     private static By selectWhereFrom = By.id("origin");
@@ -12,6 +12,8 @@ public class planeHomePage extends Base{
     private static By departureDate = By.id("departure-input");
     private static By returnDate=By.id("return-input-placeholder");
     private static By searchBtn=By.id("search-button");
+
+
 
     public void setSelectWhereFrom(String state)  {
         By selectState = By.xpath("//*[text()='"+state+"']");
@@ -21,8 +23,9 @@ public class planeHomePage extends Base{
         click(selectState);
     }
 
-    public void setSelectWhereTo(String state) {
-        By selectState = By.xpath("//*[text()='"+state+"']");
+    public void setSelectWhereTo(String state) throws InterruptedException {
+        By selectState = By.xpath("//*[@id='destination']//ul//li[text()='"+state+"']");
+        System.out.println(selectState);
         click(selectWhereTo);
         click(selectState);
     }

@@ -1,11 +1,11 @@
 package steps;
 
 import com.thoughtworks.gauge.Step;
-import pages.registerPage;
-import utils.driverFactory;
+import pages.RegisterPage;
+import utils.DriverFactory;
 
-public class registerSteps extends driverFactory {
-    registerPage registerPage = new registerPage(getWebDriver());
+public class RegisterPageSteps extends DriverFactory {
+    RegisterPage registerPage = new RegisterPage(getWebDriver());
 
     @Step("fill register credentials <email>")
     public void fillRegisterCredentials(String email)  {

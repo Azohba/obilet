@@ -19,7 +19,7 @@ public class Base {
 
     public Base(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 60);
+        this.wait = new WebDriverWait(driver, 45);
     }
 
 
@@ -41,7 +41,8 @@ public class Base {
 
 
     public void click(By by) {
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+       // wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+        wait.until(ExpectedConditions.elementToBeClickable(by));
         findElement(by).click();
     }
 

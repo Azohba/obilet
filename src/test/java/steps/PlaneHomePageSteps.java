@@ -1,15 +1,15 @@
 package steps;
 
 import com.thoughtworks.gauge.Step;
-import pages.busHomePage;
-import pages.planeHomePage;
-import utils.driverFactory;
+import pages.BusHomePage;
+import pages.PlaneHomePage;
+import utils.DriverFactory;
 
 import static constants.constant.PLANE_PAGE_TITLE;
 
-public class planeHomePageSteps extends driverFactory {
-    busHomePage busHomePage = new busHomePage(getWebDriver());
-    planeHomePage planeHomePage = new planeHomePage(getWebDriver());
+public class PlaneHomePageSteps extends DriverFactory {
+    BusHomePage busHomePage = new BusHomePage(getWebDriver());
+    PlaneHomePage planeHomePage = new PlaneHomePage(getWebDriver());
 
     @Step("check plane tab title")
     public void checkPlaneTabTitle() {

@@ -1,6 +1,7 @@
 package utils;
 
 import com.thoughtworks.gauge.AfterSuite;
+import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.BeforeSuite;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -8,12 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
-
-public class driverFactory {
+public class DriverFactory {
     static WebDriver webdriver = null;
     @BeforeSuite
     public void setup(){
@@ -28,8 +25,7 @@ public class driverFactory {
         chromeOptions.addArguments("--disable-popup-blocking");
         chromeOptions.addArguments("--disable-notifications");
         setWebdriver(new ChromeDriver(chromeOptions));
-        getWebDriver().navigate().to(System.getenv("URI"));
-        driverFactory.getWebDriver().manage().deleteAllCookies();
+        DriverFactory.getWebDriver().manage().deleteAllCookies();
     }
 
     public static WebDriver getWebDriver(){
@@ -37,11 +33,11 @@ public class driverFactory {
     }
 
 public static void setWebdriver(WebDriver webDriver){
-        driverFactory.webdriver = webDriver;
+        DriverFactory.webdriver = webDriver;
 }
 @AfterSuite
     public void closeDriver(){
-        driverFactory.getWebDriver().quit();
+        DriverFactory.getWebDriver().quit();
     }
 
 }
