@@ -1,17 +1,24 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import utils.ContextKeys.ContextKeys;
 import utils.ContextKeys.ContextMap;
 
+import static utils.DriverFactory.webdriver;
+
 public class PaymentPage extends Base{
-    public PaymentPage(WebDriver driver) {
-        super(driver);
+    public PaymentPage() {
+        super(webdriver);
+        PageFactory.initElements(webdriver, this);
     }
-    private static final By firtFlightCode = By.xpath("(//*[@class=\"partner-info\"]//strong)[1]");
-    private static final By secondFlightCode = By.xpath("(//*[@class=\"partner-info\"]//strong)[2]");
+    @FindBy(xpath = "(//*[@class='partner-info']//strong)[1]" )
+    WebElement firtFlightCode;
+    @FindBy(xpath = "(//*[@class='partner-info']//strong)[2]")
+    WebElement secondFlightCode;
 
     public void checkFlightCode(){
         String firstFlight = getText(firtFlightCode).split("- ")[1];

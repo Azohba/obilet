@@ -1,31 +1,41 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utils.ContextKeys.ContextKeys;
 import utils.ContextKeys.ContextMap;
 
+import static utils.DriverFactory.webdriver;
+
 public class LoginPage extends Base {
 
     private static Logger logger = LoggerFactory.getLogger(LoginPage.class);
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
+        super(webdriver);
+        PageFactory.initElements(webdriver, this);
     }
 
-    private static final By username = By.xpath("(//*[@name='username'])[2]");
-    private static final By password = By.xpath("(//*[@name='password'])[2]");
-    private static final By loginPageLoginBtn = By.xpath("(//*[text()='Giriş Yap'])[2]");
-    private static final By registerBtn = By.xpath("//*[text() ='Üye Ol']");
-    private static final By loginPageTxt = By.xpath("//*[text()='Üye Girişi']");
-    private static final By hesabim = By.cssSelector("[href=\"/uye/profil\"]");
+    @FindBy(xpath = "(//*[@name='username'])[2]")
+    WebElement username;
+    @FindBy(xpath = "(//*[@name='password'])[2]")
+    WebElement password;
+    @FindBy(xpath = "(//*[text()='Giriş Yap'])[2]")
+    WebElement loginPageLoginBtn;
+    @FindBy(xpath = "//*[text() ='Üye Ol']")
+    WebElement registerBtn;
+    @FindBy(xpath = "//*[text()='Üye Girişi']")
+    WebElement loginPageTxt;
+    @FindBy(css ="[href='/uye/profil']")
+    WebElement hesabim;
 
 
     public void checkLoginPageisDisplayed() {
-        if (isDisplayed(loginPageTxt)) {
+        if (loginPageTxt.isDisplayed()) {
             logger.info("You're in loginPage");
         } else {
             logger.error("LoginPage couldn't open");
@@ -33,14 +43,14 @@ public class LoginPage extends Base {
     }
 
     public void setLoginCredentialsAndClick() {
-        sendKeys(username, ContextMap.getContextValue(ContextKeys.EMAIL));
-        sendKeys(password, ContextMap.getContextValue(ContextKeys.PASS));
-        click(loginPageLoginBtn);
-        Assert.assertTrue(isDisplayed(hesabim));
+        username.sendKeys(ContextMap.getContextValue(ContextKeys.EMAIL));
+        password.sendKeys(ContextMap.getContextValue(ContextKeys.PASS));
+        loginPageLoginBtn.click();
+        Assert.assertTrue(hesabim.isDisplayed());
     }
         public void clickRegister() {
             hoverElement(registerBtn);
-            click(registerBtn);
+            registerBtn.click();
         }
 
 

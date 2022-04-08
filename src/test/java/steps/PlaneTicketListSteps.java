@@ -5,7 +5,7 @@ import pages.PlaneTicketPage;
 import utils.DriverFactory;
 
 public class PlaneTicketListSteps extends DriverFactory {
-    PlaneTicketPage planeTicketPage = new PlaneTicketPage(getWebDriver());
+    PlaneTicketPage planeTicketPage = new PlaneTicketPage();
 
     @Step("select first flight to departure")
     public void selectFly() {

@@ -5,7 +5,7 @@ import pages.BusHomePage;
 import utils.DriverFactory;
 
 public class BusHomePageSteps extends DriverFactory {
-    BusHomePage busHomePage = new BusHomePage(getWebDriver());
+    BusHomePage busHomePage = new BusHomePage();
 
     @Step("click login button")
     public void clickLogin() {

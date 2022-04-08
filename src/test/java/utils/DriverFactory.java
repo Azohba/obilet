@@ -1,7 +1,6 @@
 package utils;
 
 import com.thoughtworks.gauge.AfterSuite;
-import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.BeforeSuite;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class DriverFactory {
-    static WebDriver webdriver = null;
+   public static WebDriver webdriver;
     @BeforeSuite
     public void setup(){
         String browser = System.getenv("BROWSER");

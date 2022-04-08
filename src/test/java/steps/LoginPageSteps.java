@@ -5,7 +5,7 @@ import pages.LoginPage;
 import utils.DriverFactory;
 
 public class LoginPageSteps extends DriverFactory {
-    LoginPage loginPage = new LoginPage(getWebDriver());
+    LoginPage loginPage = new LoginPage();
 
     @Step("fill login credentials and click login")
     public void loginWithCredentials() throws InterruptedException {

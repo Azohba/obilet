@@ -7,13 +7,12 @@ Every heading in this file denotes a scenario. Every bulleted point denotes a st
      
 Search plane ticket
 -------------------
-*go to homepage
-*click plane tab
-*check plane tab title
-*select where from "Antalya - Tümü"
-*select where to "İzmir - İzmir Adnan Menderes Havalimanı"
-*select departure date "2022-02-21"
-*select return date "2022-02-22"
+*go to "ucak-bileti" homepage
+*check tab title
+*select where from
+*select where to
+*select departure date
+*select return date
 *click search plane ticket
 *select first flight to departure
 *select first flight to return

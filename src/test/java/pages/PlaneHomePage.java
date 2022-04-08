@@ -1,50 +1,76 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utils.Helper;
+
+import static utils.DriverFactory.webdriver;
+
+import java.util.List;
 
 public class PlaneHomePage extends Base{
-    public PlaneHomePage(WebDriver driver) {
-        super(driver);
-    }
-    private static By selectWhereFrom = By.id("origin");
-    private static By selectWhereTo = By.id("destination-input");
-    private static By departureDate = By.id("departure-input");
-    private static By returnDate=By.id("return-input-placeholder");
-    private static By searchBtn=By.id("search-button");
-
-
-
-    public void setSelectWhereFrom(String state)  {
-        By selectState = By.xpath("//*[text()='"+state+"']");
-        click(selectWhereFrom);
-        waitUntilElementVisible(selectState);
-        alertException();
-        click(selectState);
+    public PlaneHomePage() {
+        super(webdriver);
+        PageFactory.initElements(webdriver, this);
     }
 
-    public void setSelectWhereTo(String state) throws InterruptedException {
-        By selectState = By.xpath("//*[@id='destination']//ul//li[text()='"+state+"']");
-        System.out.println(selectState);
-        click(selectWhereTo);
-        click(selectState);
+    @FindBy(id = "origin")
+    WebElement selectWhereFrom;
+    @FindBy(id = "origin-input")
+    WebElement selectWhereFromTxt;
+    @FindBy(id = "destination")
+    WebElement selectWhereTo;
+    @FindBy(id = "destination-input")
+    WebElement selectWhereToText;
+    @FindBy(id = "departure-input")
+    WebElement departureDate;
+    @FindBy(id = "return-input-placeholder")
+    WebElement returnDate;
+    @FindBy(id = "search-button")
+    WebElement searchBtn;
+    @FindBy(css = "[id='origin']>[class='results']>ul>[class='item']")
+    List<WebElement> resultsWhereFrom;
+    @FindBy(css = "[id='destination']>[class='results']>ul>[class='item']")
+            List<WebElement> resultsWhereTo;
+
+
+    RegisterPage registerPage = new RegisterPage();
+
+    public void setSelectWhereFrom(){
+        selectWhereFrom.click();
+        waitFor(2);
+        selectWhereFromTxt.sendKeys(registerPage.getSaltString(1));
+        waitFor(3);
+        resultsWhereFrom.get(0).click();
+
     }
 
-    public void setDepartureDate(String date){
-        click(departureDate);
-        By selectDate = By.xpath("//*[@data-date='"+date+"']");
-        click(selectDate);
+    public void setSelectWhereTo(){
+        selectWhereTo.click();
+        waitFor(2);
+        selectWhereToText.sendKeys(registerPage.getSaltString(1));
+        waitFor(3);
+        System.out.println("ONUR " + resultsWhereTo.get(0).getAttribute("data-value"));
+        resultsWhereTo.get(0).click();
     }
 
-    public void setReturnDate(String date){
-        click(returnDate);
-        By selectDate = By.xpath("//*[@data-date='"+date+"']");
-        click(selectDate);
+    public void setDepartureDate(){
+        departureDate.click();
+        WebElement selectDate = webdriver.findElement(By.xpath("//*[@data-date='"+Helper.getDate()+"']"));
+        selectDate.click();
+    }
+
+    public void setReturnDate(){
+        returnDate.click();
+        WebElement selectDate =webdriver.findElement(By.xpath("//*[@data-date='"+Helper.getDate()+"']"));
+        selectDate.click();
 
     }
 
     public void clickSearchPlaneTicket(){
-        click(searchBtn);
+        searchBtn.click();
     }
 
 }

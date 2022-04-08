@@ -5,7 +5,7 @@ import pages.RegisterPage;
 import utils.DriverFactory;
 
 public class RegisterPageSteps extends DriverFactory {
-    RegisterPage registerPage = new RegisterPage(getWebDriver());
+    RegisterPage registerPage = new RegisterPage();
 
     @Step("fill register credentials <email>")
     public void fillRegisterCredentials(String email)  {
