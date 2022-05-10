@@ -1,7 +1,7 @@
 package utils;
 
 import com.thoughtworks.gauge.Step;
-import static utils.DriverFactory.getWebDriver;
+import static utils.DriverFactory.webdriver;
 
 public class PageLauncher {
     public static String APP_URL;
@@ -12,7 +12,7 @@ public class PageLauncher {
         appName = pageName;
         APP_URL = System.getenv("URL") + pageName;
         if(pageName.equals("bus")){APP_URL = System.getenv("URL");}
-        getWebDriver().navigate().to(APP_URL);
+        webdriver.navigate().to(APP_URL);
     }
 
 

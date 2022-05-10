@@ -7,5 +7,13 @@ Every heading in this file denotes a scenario. Every bulleted point denotes a st
      
 Scenario Heading
 ----------------
+tags: busTicket
 *go to "bus" homepage
 *check tab title
+*select where from
+*select where to
+*select departure date
+*click search ticket
+*select random trip
+*select "2" passenger, random seat and choose "female" gender
+*click proceed and payment button

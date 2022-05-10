@@ -3,7 +3,7 @@ Register Feature
 
 Register
 -------------------
-*go to homepage
+*go to "bus" homepage
 *click login button
 *click register button
 *fill register credentials "onur"
@@ -11,6 +11,7 @@ Register
 *click "cikis" button
 *click login button
 *fill login credentials and click login
+
 
 
 

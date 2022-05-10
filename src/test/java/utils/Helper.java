@@ -9,7 +9,6 @@ public class Helper {
     public static String getDate(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
-        System.out.println(formatter.format(date));
         return formatter.format(date);
     }
 

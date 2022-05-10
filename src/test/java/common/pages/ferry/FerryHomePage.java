@@ -14,7 +14,7 @@ public class FerryHomePage extends Base  implements HomePageInterface {
 
     @Override
     public void checkTabTitle() {
-        String actulTitle = getTitle();
-        Assert.assertEquals(FERRY_PAGE_TITLE,actulTitle);
+        String actualTitle = getTitle();
+        Assert.assertEquals(FERRY_PAGE_TITLE,actualTitle);
     }
 }

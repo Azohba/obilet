@@ -24,18 +24,7 @@ public class RegisterPage extends Base{
     @FindBy(css = ".register.register-button" )
     WebElement registerBtn;
 
-    protected String getSaltString(Integer lenghtParam) {
-        String SALTCHARS = "abcdefghijklmnoprstuvyz";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < lenghtParam) {
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-        String saltStr = salt.toString();
-        return saltStr;
 
-    }
 
     public void register(String e_mail)  {
         ContextMap.addContext(ContextKeys.EMAIL,e_mail+getSaltString(7)+"@gmail.com");

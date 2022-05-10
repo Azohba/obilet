@@ -49,7 +49,7 @@ public class LoginPage extends Base {
         Assert.assertTrue(hesabim.isDisplayed());
     }
         public void clickRegister() {
-            hoverElement(registerBtn);
+            swipeUntilElement(registerBtn);
             registerBtn.click();
         }
 

@@ -1,36 +1,38 @@
 package steps;
 
 import com.thoughtworks.gauge.Step;
+import pages.HomePageAll;
 import pages.PlaneHomePage;
 import utils.DriverFactory;
 
 
 
 public class PlaneHomePageSteps extends DriverFactory {
+    HomePageAll homePageAll = new HomePageAll();
     PlaneHomePage planeHomePage = new PlaneHomePage();
 
     @Step("select where from")
     public void selectWhereFrom() {
-        planeHomePage.setSelectWhereFrom();
+        homePageAll.selectWhereFrom();
     }
 
     @Step("select where to")
     public void selectWhereTo()  {
-        planeHomePage.setSelectWhereTo();
+        homePageAll.selectWhereTo();
     }
 
     @Step("select departure date")
     public void selectDepartureDate() {
-        planeHomePage.setDepartureDate();
+        homePageAll.setDepartureDate();
     }
 
     @Step("select return date")
     public void selectReturnDate() {
-        planeHomePage.setReturnDate();
+        planeHomePage.setPlaneReturnDate();
     }
 
-    @Step("click search plane ticket")
+    @Step("click search ticket")
     public void clickSearch() {
-        planeHomePage.clickSearchPlaneTicket();
+        homePageAll.clickSearchTicket();
     }
 }

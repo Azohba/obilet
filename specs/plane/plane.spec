@@ -8,6 +8,7 @@ Every heading in this file denotes a scenario. Every bulleted point denotes a st
 Search plane ticket
 -------------------
 *go to "ucak-bileti" homepage
+*login
 *check tab title
 *select where from
 *select where to

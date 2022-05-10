@@ -15,6 +15,17 @@ public class LoginPageSteps extends DriverFactory {
     @Step("click register button")
     public void clickRegister() {
         loginPage.checkLoginPageisDisplayed();
-    loginPage.clickRegister();
+        loginPage.clickRegister();
+    }
+
+    @Step("check tab title <> ")
+    public void implementation1(Object page) {
+
+
+    }
+
+    @Step("fill login credentials <email> and <pass>")
+    public void LoginNegatives(String email, String pass) {
+
     }
 }
