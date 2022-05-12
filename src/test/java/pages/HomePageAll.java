@@ -47,17 +47,31 @@ public class HomePageAll extends Base {
     List<WebElement> resultsWhereFrom;
     @FindBy(css = "[id='destination']>[class='results']>ul>[class='item']")
     List<WebElement> resultsWhereTo;
+    @FindBy(css = "[class='results']>ul>[class='item']")
+    List<WebElement> resultsWhereFromeListPage;
 
 
     public void selectWhereFrom() {
-
         logger.info("click selectWhereFrom : " + selectWhereFrom);
-        waitUntilElementVisibleAndClick(selectWhereFrom);
-        selectWhereFromTxt.sendKeys(getSaltString(1));
-        waitFor(2);
-        ContextMap.addContext(ContextKeys.WHEREFROM, resultsWhereFrom.get(0).getText());
-        waitUntilElementVisibleAndClick(resultsWhereFrom.get(0));
+        try{
+            waitUntilElementVisibleAndClick(selectWhereFrom);
+            selectWhereFromTxt.sendKeys(getSaltString(1));
+            waitFor(3);
+            ContextMap.addContext(ContextKeys.WHEREFROM, resultsWhereFrom.get(0).getText());
+            waitUntilElementVisibleAndClick(resultsWhereFrom.get(0));
+        }catch (Exception e){
+           logger.error("SEFER BULUNAMADI.... : " , e);
+        }
 
+    }
+
+    public void setSelectWhereFromListPage(){
+        waitUntilElementVisibleAndClick(selectWhereFromTxt);
+        selectWhereFromTxt.sendKeys();
+        selectWhereFromTxt.sendKeys(getSaltString(1));
+        waitFor(3);
+        ContextMap.addContext(ContextKeys.WHEREFROM, resultsWhereFromeListPage.get(0).getText());
+        waitUntilElementVisibleAndClick(resultsWhereFromeListPage.get(0));
 
     }
 

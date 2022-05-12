@@ -15,5 +15,6 @@ tags: busTicket
 *select departure date
 *click search ticket
 *select random trip
-*select "2" passenger, random seat and choose "female" gender
+*select "3" passenger, random seat and choose "female" gender
 *click proceed and payment button
+*enter passengers informations

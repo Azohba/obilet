@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class Base {
+public  abstract class Base {
     private WebDriver webDriver;
     private WebDriverWait wait;
     public static Logger logger = LoggerFactory.getLogger(Base.class);
@@ -88,9 +88,12 @@ public class Base {
         return saltStr;
     }
 
-    public int getRandomNumber(){
+    public int getRandomNumber(Integer bound){
         Random rnd = new Random();
-        return (rnd.nextInt(5));
+        if (bound<=0){
+            bound = 1;
+        }
+        return (rnd.nextInt(bound));
     }
 
     public WebElement swipeUntilElement(WebElement webElement){
